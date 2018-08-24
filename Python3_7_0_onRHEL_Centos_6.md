@@ -1,5 +1,6 @@
 # Compiling Python 3.7.0 on RHEL/Centos 6.9
-Unfortunately python 3.7.0 requires:
+
+Unfortunately python 3.7.0 requires and RHEL/Centos 6.9 provides previous versions:
 - zlib 1.1.3 (better 1.1.4) or upper
 - openssl 1.1.0 or upper
 - Also, you will need libffi-devel rpm
@@ -12,7 +13,7 @@ PYTHON_URL=https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_V
 mkdir $HOME/opt
 LOCAL=$HOME/opt
 mkdir $HOME/tmp
-DL=${HOME}/tmp
+DL=$HOME/tmp
 ```
 
 ## Compiling zlib 1.2.11
