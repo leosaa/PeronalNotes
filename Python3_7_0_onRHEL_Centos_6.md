@@ -31,7 +31,8 @@ cd $HOME/tmp
 wget -c https://www.openssl.org/source/openssl-1.1.0i.tar.gz
 tar xzvf openssl-1.1.0i.tar.gz
 cd openssl-1.1.0i
-./config --prefix=$LOCAL/openssl --openssldir=$LOCAL/openssl \
+./config --prefix=$LOCAL/openssl \
+--openssldir=$LOCAL/openssl \
 --with-zlib-include=/root/opt/lib
 export LD_LIBRARY_PATH=$LOCAL/lib
 make
@@ -45,7 +46,10 @@ cd $HOME/tmp
 wget -c https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
 tar xzvf Python-3.7.0.tgz
 cd Python-3.7.0
- ./configure --enable-optimizations --with-openssl=$LOCAL/openssl --with-ssl-default-suites=openssl  --prefix=$LOCAL/python-3.7.0
+./configure --enable-optimizations \
+--with-openssl=$LOCAL/openssl \
+--with-ssl-default-suites=openssl \
+--prefix=$LOCAL/python-3.7.0
 export LD_LIBRARY_PATH=$LOCAL/openssl/lib:$LD_LIBRARY_PATH
 make
 make test <optional>
@@ -59,4 +63,3 @@ python3.7
 >>> import sys
 >>> print(sys.version)
 ```
-
