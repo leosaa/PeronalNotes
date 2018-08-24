@@ -1,12 +1,16 @@
-# Compiling Python 3.7.0 on RHEL/Centos 6.9
+# How to install Python 3.7.0 on RHEL/Centos 6.9
 
+This is an introduction to building and installing software from source on Red Hat or Centos 6.
 Unfortunately python 3.7.0 requires and RHEL/Centos 6.9 provides previous versions:
+So previos to configure pyhton, you have to configure zlib and openssl
+
+## Requirements
 - zlib 1.1.3 (better 1.1.4) or upper
 - openssl 1.1.0 or upper
 - Also, you will need libffi-devel rpm
 
 
-## Set Environment
+## Step 1: Set Environment
 ```
 PYTHON_VERSION=3.7.0
 PYTHON_URL=https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
@@ -16,7 +20,7 @@ mkdir $HOME/tmp
 DL=$HOME/tmp
 ```
 
-## Compiling zlib 1.2.11
+## Building zlib 1.2.11
 ```
 cd ${DL}
 wget -c https://zlib.net/zlib-1.2.11.tar.gz
@@ -27,7 +31,7 @@ make
 make install
 ```
 
-## Compiling OpenSSL 1.1.0
+## Building OpenSSL 1.1.0
 ```
 cd ${DL}
 wget -c https://www.openssl.org/source/openssl-1.1.0i.tar.gz
@@ -42,7 +46,7 @@ make test TESTS=01-test_sanity V=1
 make install
 ```
 
-## Compiling Python 3.7.0
+## Building Python 3.7.0
 ```
 cd ${DL}
 wget -c https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
@@ -57,6 +61,8 @@ make
 make test <optional>
 make altinstall
 ```
+It is critical that you use make altinstall when you install your custom version of Python. If you use the normal make install you will end up with two different versions of Python in the filesystem both named python. This can lead to problems that are very hard to diagnose.
+
 ## Using Python 3.7.0
 ```
 export LD_LIBRARY_PATH=${LOCAL}/openssl/lib:${LOCAL}/opt/lib
