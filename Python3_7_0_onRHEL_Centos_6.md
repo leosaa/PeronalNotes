@@ -2,7 +2,7 @@
 Unfortunately python 3.7.0 requires:
 - zlib 1.1.3 (better 1.1.4) or upper
 - openssl 1.1.0 or upper
-Also, you will need libffi-devel rpm
+- Also, you will need libffi-devel rpm
 
 
 ## Set Environment
