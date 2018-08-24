@@ -18,6 +18,7 @@ mkdir $HOME/opt
 LOCAL=$HOME/opt
 mkdir $HOME/tmp
 DL=$HOME/tmp
+yum install libffi-devel
 ```
 
 ## Building zlib 1.2.11
@@ -64,10 +65,20 @@ make altinstall
 It is critical that you use make altinstall when you install your custom version of Python. If you use the normal make install you will end up with two different versions of Python in the filesystem both named python. This can lead to problems that are very hard to diagnose.
 
 ## Using Python 3.7.0
+
 ```
 export LD_LIBRARY_PATH=${LOCAL}/openssl/lib:${LOCAL}/opt/lib
 export PATH=${LOCAL}/python-3.7.0/bin:$PATH
+```
+
+### Check version
+```
+python3.7 -V
+ Python 3.7.0
 python3.7
->>> import sys
->>> print(sys.version)
+ >>> import sys
+ >>> print(sys.version)
+ 3.7.0 (default, Aug 24 2018, 12:03:48) 
+ [GCC 4.4.7 20120313 (Red Hat 4.4.7-18)]
+ >>> 
 ```
