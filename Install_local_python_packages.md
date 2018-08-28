@@ -25,7 +25,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ## install from the sources
 ```
 wget -c https://github.com/astropy/astropy/archive/v3.0.4.tar.gz
-tar xzvf wget -c v3.0.4.tar.gz
+tar xzvf v3.0.4.tar.gz
 cd astropy-3.0.4/
 python3.7 setup.py install --prefix=$HOME/.local
  pip3.7 list
