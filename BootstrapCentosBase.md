@@ -39,13 +39,14 @@ yum install mysql-community-server
 ```
 
 ## MySQL root password
+```
 grep "A temporary password is generated for root@localhost:" /var/log/mysqld.log
 2018-08-13T07:23:45.801317Z 1 [Note] A temporary password is generated for root@localhost:XxXxXx
 mysql -u root -pXxXxXx
 mysql> SET GLOBAL validate_password_policy=LOW;
 Query OK, 0 rows affected (0.00 sec)
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'secretpassWd';
-
+```
 
 ### If you want to reset the root password
 ```
