@@ -65,7 +65,19 @@ mysql -uroot -psecretpassWd
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 yum localinstall epel-release-latest-6.noarch.rpm
 ```
-## Installing php 5.6 
+## Enable IUS
+```
+yum install https://$(rpm -E '%{?centos:centos}%{!?centos:rhel}%{rhel}').iuscommunity.org/ius-release.rpm
+```
+
+## Installing php 7.1
+```
+yum install php71u-common.x86_64 php71u-xml.x86_64 php71u-xmlrpc.x86_64 php71u-mcrypt.x86_64\
+php71u-pdo.x86_64 php71u-json.x86_64 php71u-gd.x86_64 php71u-mysqlnd.x86_64\
+php71u-mbstring.x86_64
+```
+
+## Installing php 5.6 (Deprecated)
 ```
 yum install yum-utils
 yum-config-manager --enable remi-php56
