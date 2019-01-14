@@ -74,7 +74,7 @@ yum install https://$(rpm -E '%{?centos:centos}%{!?centos:rhel}%{rhel}').iuscomm
 ```
 yum install php71u-common.x86_64 php71u-xml.x86_64 php71u-xmlrpc.x86_64 php71u-mcrypt.x86_64\
 php71u-pdo.x86_64 php71u-json.x86_64 php71u-gd.x86_64 php71u-mysqlnd.x86_64\
-php71u-mbstring.x86_64
+php71u-mbstring.x86_64 php71u-cli php71u-imap 
 ```
 
 ## Installing php 5.6 (Deprecated)
